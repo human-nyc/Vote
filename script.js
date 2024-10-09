@@ -12,6 +12,21 @@ const popupImg = document.createElement('img');
 popup.appendChild(popupImg);
 document.body.appendChild(popup);
 
+// Instagram links for each postcard
+const instagramLinks = [
+    "https://www.instagram.com/jeffreysincich/?hl=en", // Postcard 1
+    "https://www.instagram.com/billrebholz/?hl=en", // Postcard 2
+    "https://www.instagram.com/zachpollakoff/?hl=en", // Postcard 3
+    "https://www.instagram.com/rachaelyaeger/?hl=en", // Postcard 4
+    "https://www.instagram.com/michaelcorrey/?hl=en", // Postcard 5
+    "https://www.instagram.com/wylie_garcia/?hl=en", // Postcard 6
+    "https://www.instagram.com/neildmaclean/?hl=en", // Postcard 7
+    "https://www.instagram.com/clayhickson/?hl=en", // Postcard 8
+    "https://www.instagram.com/teshietesh/?hl=en", // Postcard 9
+    "https://www.instagram.com/clayhickson/?hl=en", // Postcard 10
+    "https://www.instagram.com/adigoodrich/?hl=en"  // Postcard 11
+];
+
 // Function to change the image
 function changeImage() {
     currentImage = (currentImage % totalImages) + 1;  // Increment image, reset to 1 after 11
@@ -21,10 +36,8 @@ function changeImage() {
 // Automatically change image every 1 second
 let autoSlide = setInterval(changeImage, 1000);
 
-// Add event listener for image click
-imgElement.addEventListener('click', () => {
-    changeImage();  // Change image on click
-});
+// Remove the click event listener to stop changing the image on click
+// imgElement.addEventListener('click', () => { changeImage(); }); // Remove this line
 
 // Function to show all images in a grid format
 function showExplore() {
@@ -83,40 +96,18 @@ popup.addEventListener('click', (e) => {
 // Add event listener for explore button to show the grid initially
 exploreBtn.addEventListener('click', showExplore);
 
-document.getElementById('friends-link').addEventListener('click', function() {
-    const friends = [
-        "Adi Goodrich",
-        "Bill Rebholz",
-        "Clay Hickson",
-        "Jeffrey Sincinich",
-        "Michael Correy",
-        "Neil MacLean",
-        "Rachael Yaeger",
-        "Tescia Deakt",
-        "Wylie Garcia",
-        "Zach Pollakoff"
-    ];
+// Stop the slideshow when the user hovers over the image
+imgElement.addEventListener('mouseover', () => {
+    clearInterval(autoSlide); // Stop the slideshow
+});
 
-    // Sort friends alphabetically
-    friends.sort();
+// Restart the slideshow when the user stops hovering over the image
+imgElement.addEventListener('mouseout', () => {
+    autoSlide = setInterval(changeImage, 1000); // Restart the slideshow
+});
 
-    // Get the friends list container
-    const friendsList = document.getElementById('friends-list');
-
-    // If the list is already shown, hide it, else show it
-    if (friendsList.classList.contains('hidden')) {
-        // Populate the list with sorted names
-        friendsList.innerHTML = '';
-        friends.forEach(friend => {
-            const li = document.createElement('li');
-            li.textContent = friend;
-            friendsList.appendChild(li);
-        });
-
-        // Show the list
-        friendsList.classList.remove('hidden');
-    } else {
-        // Hide the list
-        friendsList.classList.add('hidden');
-    }
+// Add event listener to the main image in the slideshow to open Instagram link
+imgElement.addEventListener('click', () => {
+    const instagramUrl = instagramLinks[currentImage - 1]; // Get the corresponding Instagram link
+    window.open(instagramUrl, '_blank'); // Open the Instagram link in a new tab
 });
