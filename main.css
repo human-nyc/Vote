@@ -79,6 +79,17 @@ main {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Thinner outline */
 }
 
+
+.register-to-vote a {
+    color: inherit; /* Keeps the current color */
+    text-decoration: none; /* Removes underline initially */
+}
+
+.register-to-vote a:hover {
+    text-decoration: underline; /* Adds underline on hover */
+}
+
+
 /* Button Style */
 .explore-btn {
     position: absolute;
@@ -132,7 +143,7 @@ main {
 /* Mobile view - 2 columns and 5 rows */
 @media (max-width: 768px) {
     .explore-container {
-        grid-template-columns: repeat(3, 1fr); /* 2 columns on mobile */
+        grid-template-columns: repeat(4, 1fr); /* 2 columns on mobile */
         gap: 20px; /* Adjust gap for mobile if necessary */
         position: absolute;
         width: 50%;
@@ -165,12 +176,10 @@ main {
     cursor: grabbing;
 }
 
-/* Ensure the images are aligned by top */
 .explore-container {
     align-items: start;
 }
 
-/* Popup modal for the enlarged image */
 .popup {
     display: none; /* Hidden by default */
     position: fixed;
@@ -206,4 +215,25 @@ main {
 /* When hovering over the close button */
 .popup .close-btn:hover {
     color: #f1f1f1;
+}
+
+.clickable {
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+}
+
+#friends-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 0; 
+    font-size: 1.2rem;
+}
+
+.hidden {
+    display: none;
+}
+
+#friends-list li:hover {
+    text-decoration: underline;
 }

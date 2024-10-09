@@ -9,31 +9,29 @@
 </head>
 <body>
     <main>
-        <!-- Textbox for reasons to vote -->
         <div class="voting-info">
-            Reasons to vote, postcards designed by friends.<br><br>
+            Reasons to vote, postcards designed by <span id="friends-link" class="clickable">friends</span>.<br>
+            <ul id="friends-list" class="hidden"></ul>
+            <br>
             If you're outside of NYC and know of a small(er) hometown bookstore, cafe or location that would carry these reminder to vote postcards, please let us know!<br><br>
-            <a href="mailto:zachary.pollakoff@gmail.com">zachary.pollakoff@gmail.com</a>, <br>
-            <a href="mailto:rachael@human-nyc.com">rachael@human-nyc.com</a>
+            <a href="mailto:zachary.pollakoff@gmail.com">zachary.pollakoff@gmail.com</a>
         </div>
-
-        <!-- Slideshow container -->
+        
         <div class="slideshow">
             <img id="postcard" src="PostCard1.jpg" alt="series of digital postcards encouraging people to vote">
         </div>
 
-        <!-- Button to start 'Explore Postcards' -->
-        <button id="explore-btn" class="explore-btn">Explore</button>
+        <button id="explore-btn" class="explore-btn">All</button>
 
-        <!-- Text for Register to Vote at the bottom -->
         <div class="register-to-vote">
-            Register to Vote!!
+            <a href="https://elections.ny.gov/voter-registration-process" target="_blank">Register to Vote!!</a>
+        </div>
+        
+
+        <div id="explore-container" class="explore-container">
         </div>
 
-        <!-- Container for all images in the explore mode -->
-        <div id="explore-container" class="explore-container">
-            <!-- Images will be inserted here -->
-        </div>
+        
     </main>
     <script src="script.js"></script>
 </body>

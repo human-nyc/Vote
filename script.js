@@ -1,5 +1,5 @@
 let currentImage = 1;
-const totalImages = 10; // Total number of postcards
+const totalImages = 11; // Updated to include PostCard11
 const imgElement = document.getElementById('postcard');
 const exploreBtn = document.getElementById('explore-btn');
 const exploreContainer = document.getElementById('explore-container');
@@ -14,7 +14,7 @@ document.body.appendChild(popup);
 
 // Function to change the image
 function changeImage() {
-    currentImage = (currentImage % totalImages) + 1;  // Increment image, reset to 1 after 10
+    currentImage = (currentImage % totalImages) + 1;  // Increment image, reset to 1 after 11
     imgElement.src = `PostCard${currentImage}.jpg`;
 }
 
@@ -67,8 +67,8 @@ function goBack() {
     // Show the slideshow again
     slideshow.style.display = 'flex';
 
-    // Change the button text back to "Explore"
-    exploreBtn.textContent = 'Explore';
+    // Change the button text back to "All"
+    exploreBtn.textContent = 'All';
     exploreBtn.removeEventListener('click', goBack);
     exploreBtn.addEventListener('click', showExplore); // Add event listener to show the grid again
 }
@@ -82,3 +82,41 @@ popup.addEventListener('click', (e) => {
 
 // Add event listener for explore button to show the grid initially
 exploreBtn.addEventListener('click', showExplore);
+
+document.getElementById('friends-link').addEventListener('click', function() {
+    const friends = [
+        "Adi Goodrich",
+        "Bill Rebholz",
+        "Clay Hickson",
+        "Jeffrey Sincinich",
+        "Michael Correy",
+        "Neil MacLean",
+        "Rachael Yaeger",
+        "Tescia Deakt",
+        "Wylie Garcia",
+        "Zach Pollakoff"
+    ];
+
+    // Sort friends alphabetically
+    friends.sort();
+
+    // Get the friends list container
+    const friendsList = document.getElementById('friends-list');
+
+    // If the list is already shown, hide it, else show it
+    if (friendsList.classList.contains('hidden')) {
+        // Populate the list with sorted names
+        friendsList.innerHTML = '';
+        friends.forEach(friend => {
+            const li = document.createElement('li');
+            li.textContent = friend;
+            friendsList.appendChild(li);
+        });
+
+        // Show the list
+        friendsList.classList.remove('hidden');
+    } else {
+        // Hide the list
+        friendsList.classList.add('hidden');
+    }
+});
