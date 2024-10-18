@@ -116,16 +116,17 @@ imgElement.addEventListener('click', () => {
 // Adding back the event listener for showing/hiding the friends list
 document.getElementById('friends-link').addEventListener('click', function() {
     const friends = [
-        "Adi Goodrich",
-        "Bill Rebholz",
-        "Clay Hickson",
-        "Jeffrey Sincinich",
-        "Michael Correy",
-        "Neil MacLean",
-        "Rachael Yaeger",
-        "Tescia Deakt",
-        "Wylie Garcia",
-        "Zach Pollakoff"
+        "Adi Goodrich - Affordable Housing",
+        "Bill Rebholz - Labor Rights",
+        "Clay Hickson - Climate Change",
+        "Hilary Pharr - Gun Reform",
+        "Jeffrey Sincinich - Abortion Rights",
+        "Michael Correy - Health Care",
+        "Neil MacLean - Gun Reform",
+        "Rachael Yaeger - Education Funding",
+        "Tescia Deak - Voter Rights",
+        "Wylie Garcia - Trans Safety",
+        "Zach Pollakoff - Immigration Reform"
     ];
 
     // Sort friends alphabetically
